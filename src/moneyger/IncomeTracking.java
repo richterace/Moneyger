@@ -9,10 +9,10 @@ import javax.swing.*;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.jfree.chart.*;
-import org.jfree.data.general.DefaultPieDataset;
+// import org.jfree.chart.*;
+// import org.jfree.data.general.DefaultPieDataset;
 import java.sql.ResultSet;
-import org.jfree.data.category.DefaultCategoryDataset;
+// import org.jfree.data.category.DefaultCategoryDataset;
 
 
 
@@ -25,7 +25,7 @@ public class IncomeTracking extends javax.swing.JPanel {
     private double currentValue = 0.0;
     private String currentOperator = "";
     private List<String> storedData = new ArrayList<>();
-    private DefaultPieDataset dataset;
+    // private DefaultPieDataset dataset;
     /**
      * Creates new form LogInn
      */

@@ -195,7 +195,7 @@ public class Login extends javax.swing.JPanel {
          String url = "jdbc:mysql://localhost:3306/users";
         // String url = "jdbc:mysql://0.tcp.ap.ngrok.io:13240/main";
         String user = "root";
-        String pass = "password";
+        String pass = "123456";
 
         try {
             // Establish database connection

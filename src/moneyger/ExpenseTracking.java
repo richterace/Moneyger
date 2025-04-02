@@ -491,7 +491,7 @@ public class DatabaseConnection {
         String url = "jdbc:mysql://localhost:3306/users";
         // String url = "jdbc:mysql://0.tcp.ap.ngrok.io:13240/main";
         String username = "root";
-        String password = "password";
+        String password = "123456";
 
         Connection conn = null;
         try {
