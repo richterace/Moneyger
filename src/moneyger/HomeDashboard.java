@@ -3,7 +3,10 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
 package moneyger;
-
+import javax.swing.JFileChooser;
+import javax.swing.filechooser.FileNameExtensionFilter;
+import javax.swing.ImageIcon;
+import java.awt.Image;
 /**
  *
  * @author PC
@@ -41,6 +44,7 @@ public class HomeDashboard extends javax.swing.JPanel {
         SideMenu = new javax.swing.JLabel();
         WhiteBG = new javax.swing.JLabel();
         BaseBG = new javax.swing.JLabel();
+        ProfileButton = new javax.swing.JButton();
 
         setLayout(null);
 
@@ -150,6 +154,15 @@ public class HomeDashboard extends javax.swing.JPanel {
         BaseBG.setIcon(new javax.swing.ImageIcon(getClass().getResource("/moneyger/UI Elements/HomeDashboard/Rectangle.png"))); // NOI18N
         add(BaseBG);
         BaseBG.setBounds(0, 0, 1080, 700);
+
+        ProfileButton.setText("ProfileButton");
+        ProfileButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ProfileButtonActionPerformed(evt);
+            }
+        });
+        add(ProfileButton);
+        ProfileButton.setBounds(110, 100, 140, 140);
     }// </editor-fold>//GEN-END:initComponents
 
     private void DashboardButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DashboardButtonActionPerformed
@@ -188,6 +201,29 @@ public class HomeDashboard extends javax.swing.JPanel {
         noButton.setVisible(false);
     }//GEN-LAST:event_noButtonActionPerformed
 
+    private void ProfileButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ProfileButtonActionPerformed
+        // TODO add your handling code here:
+        // mainFrame.navigateTo(new ChangeProfilePanel(mainFrame));
+        JFileChooser fileChooser = new JFileChooser();
+    fileChooser.setDialogTitle("Select Profile Picture");
+
+    // Allow only image files
+    fileChooser.setAcceptAllFileFilterUsed(false);
+    fileChooser.addChoosableFileFilter(new javax.swing.filechooser.FileNameExtensionFilter("Image files", "jpg", "jpeg", "png", "gif"));
+
+    int result = fileChooser.showOpenDialog(this);
+
+    if (result == JFileChooser.APPROVE_OPTION) {
+        java.io.File selectedFile = fileChooser.getSelectedFile();
+        String imagePath = selectedFile.getAbsolutePath();
+
+        // Resize the image to fit the label
+        ImageIcon icon = new ImageIcon(imagePath);
+        Image img = icon.getImage().getScaledInstance(Profile.getWidth(), Profile.getHeight(), Image.SCALE_SMOOTH);
+        Profile.setIcon(new ImageIcon(img));
+    }
+    }//GEN-LAST:event_ProfileButtonActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel BaseBG;
@@ -199,6 +235,7 @@ public class HomeDashboard extends javax.swing.JPanel {
     private javax.swing.JButton LogoutButton;
     private javax.swing.JLabel Placeholder;
     private javax.swing.JLabel Profile;
+    private javax.swing.JButton ProfileButton;
     private javax.swing.JLabel SideMenu;
     private javax.swing.JButton WhatsNewButton;
     private javax.swing.JLabel WhiteBG;
